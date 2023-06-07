@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <title>Home</title>
+</head>
+<body>
+
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/info" class="active">Personvern og GDPR</a></li>
+            <li>
+                <form id="search-form" action="/search" method="get">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit">Search</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <div class="school-image">
+        <img src="/school.jpg">
+        <div class="image-text">
+          <h1>Welcome to our school</h1>
+          <p>Learn, grow, and succeed with us</p>
+        </div>
+      </div>
+
+    <div class="school-info">
+        <div class="video-container">
+            <video src="/the christmas heist.mp4" controls></video>
+        </div>
+        <div class="text-container">
+          <h2>Litt om skolen vår</h2>
+            <p>Vår skole er en institusjon som legger stor vekt på å tilby kvalitetsutdanning og gode læringsopplevelser for våre elever. 
+            Vi har dedikerte lærere og ansatte som jobber hardt for å støtte elevene våre, og vi har en sterk kultur som fremmer samarbeid, respekt og inkludering.
+
+            Vi tilbyr et bredt spekter av fag og aktiviteter som er utformet for å utvikle elevenes akademiske ferdigheter og personlige egenskaper. 
+            Vi legger også stor vekt på å tilby et trygt og støttende miljø der elevene kan vokse og utvikle seg.
+            
+            Vi er stolte av vår skole og tror at den er en flott ressurs for både elever og lokalsamfunn. 
+            Vi jobber kontinuerlig med å forbedre og utvide vårt tilbud, og vi ønsker å fortsette å være en ledende institusjon innenfor utdanningssektoren.
+            </p>
+        </div>
+    </div>
+    <div class="school-activities">
+        <div class="activity1">
+            <h3>Basketball Turnering</h3>
+            <p3>Den 11.03.2023 i gymsalen blir det holdt basketball turnering. 
+                Turneringen kommer til å vare hele dagen, hvis du er interessert til å enten spille eller se på venligst gå til resepsjonen
+            </p3>
+        </div>
+        <div class="activity2">
+            <h3>Innsamling dag</h3>
+            <p3>Fra 07.04.2023 til 14.04.2023 blir det insamlingsaksjon for barn i Africa. 
+                Du kan selge det du vil så lenge det er lovlig
+            </p3>
+        </div>
+        <div class="activity3">
+            <h3>Skolefest</h3>
+            <p3>På siste skole dagen som er 20.06.2023 blir det holdt skolefest i gymsalen. H
+                vis du er interessert å delta vennligs kjøp biletter ved resepsjonen.
+            </p3>
+        </div>
+    </div>
+
+    <div class="FAQ">
+        <h2>FAQ</h2>
+            <button class="accordion">Hva er skolens timeplan</button>
+        <div class="panel">
+            <p>Skolens timeplan ligger på www.timeplan.no. Det blir updatert regelsmessig og bør inneholde all informasjon folk trenger.</p>
+        </div>
+
+            <button class="accordion">Hvordan søker jeg hos dere?</button>
+        <div class="panel">
+            <p>Du kan enten sende direkte til oss på epost adressen skolens@gmail.com eller gjennom den universielle skole portalen.</p>
+        </div>
+
+            <button class="accordion">Hvordan er skolens sikkerhet?</button>
+        <div class="panel">
+            <p>Nabolaget skolen befinner seg i er sikker. Skolen aldri har hatt problemer med sikkerhet.</p>
+        </div>
+
+            <button class="accordion">Hvordan kan jeg gi feedback om nettsiden?</button>
+        <div class="panel">
+            <p>Du kan gi oss feedback med å bare trykke på denne teskten.<a href="https://forms.gle/GSk4o9MVyohmjM6i6">Trykk her!</a></p>
+        </div>
+
+            <button class="accordion">Hvor gammel er skolen?</button>
+        <div class="panel">
+            <p>Skolen ble bygget i 1999, men siden det har det gått gjennom flere oppusninger.</p>
+        </div>
+
+            <button class="accordion">Hvor finner jeg siden om personvern?</button>
+        <div class="panel">
+            <p>Du finner siden om personvern ved å klikke på Personvern og GDPR knappen markert med mørkeblå oppe i venstre siden av skjermen.</p>
+        </div>
+
+            <button class="accordion">Hvor finner jeg chat boks og kontaktskjemaen?</button>
+        <div class="panel">
+            <p>På grunn av at vi mangler arbeidskraft på laget, tar det lengre tid å implementere nevnte features, men de kommer snart.</p>
+        </div>
+    </div>
+
+</body> 
+<div class="footer">
+    <p2> Copyright &copy; 2023 </p2>
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    }
+    const searchForm = document.querySelector('form[action="/search"]');
+    const contentSections = document.querySelectorAll('h1, h2, h3, p, ul, li, a');
+
+    searchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+      
+        const query = document.querySelector('input[name="query"]').value.toLowerCase();
+      
+        for (const section of contentSections) {
+            const text = section.textContent.toLowerCase();
+            if (text.includes(query)) {
+                section.scrollIntoView({behavior: 'smooth', block: 'start'});
+                break;
+            }
+        }
+    });
+</script>
+
+</html>
