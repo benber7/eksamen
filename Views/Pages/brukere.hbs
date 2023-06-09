@@ -8,7 +8,11 @@
     <title>Brukere</title>
 </head>
 <body>
-{{>Header}}
+    {{#if Admin}}
+    {{>AdminHeader}}
+    {{else}}
+    {{>Header}}
+    {{/if}}
 
 <h1>Liste av brukere</h1>
 
@@ -34,7 +38,7 @@
                     <td>{{this.Fornavn}}</td>
                     <td>{{this.Etternavn}}</td>
                     <td>{{this.tlf}}</td>
-                    <td>{{this.brukernavn}}</td>
+                    <td>{{this.Brukernavn}}</td>
                     <td>{{this.Epost}}</td>
                     <td>{{this.Klasse_id}}</td>
                     <td><form action="/slettBruker" method="post">
@@ -45,21 +49,10 @@
                     <td>
                         <form action="/endreBruker" method="post">
                             <input type="hidden" name="id" value="{{this.id}}">
-                            Rolle:
-                            <select name="rolle" id="rolle">
-                                <option value="Elev">Elev</option>
-                                <option value="Larer">Lærer</option>
-                                <option value="IT-med">IT-medarbeider</option>
-                                <option value="Admin">Admin</option>
-                            </select>
                             Fornavn:
                             <input type="text" name="Fornavn" value="{{this.Fornavn}}"><br>
                             Etternavn:
                             <input type="text" name="Etternavn" value="{{this.Etternavn}}"><br>
-                            TLF:
-                            <input type="number" name="tlf" value="{{this.tlf}}"><br>
-                            Brukernavn:
-                            <input type="text" name="brukernavn" value="{{this.brukernavn}}"><br>
                             Epost:
                             <input type="text" name="Epost" value="{{this.Epost}}"><br>
                             Klasse ID:
@@ -69,6 +62,17 @@
                                 <option value="2">Barneskole</option>
                                 <option value="3">Ungdomsskole</option>
                             </select><br>
+                            Brukernavn:
+                            <input type="text" name="Brukernavn" value="{{this.Brukernavn}}"><br>
+                            TLF:
+                            <input type="number" name="tlf" value="{{this.tlf}}"><br>
+                            Rolle:
+                            <select name="rolle" id="rolle">
+                                <option value="Elev">Elev</option>
+                                <option value="Larer">Lærer</option>
+                                <option value="IT-med">IT-medarbeider</option>
+                                <option value="Admin">Admin</option>
+                            </select>
                             <input type="submit" value="Updater">
                         </form>
                     </td>

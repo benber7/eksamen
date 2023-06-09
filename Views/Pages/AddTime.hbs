@@ -8,7 +8,11 @@
     <title>Lag bruker</title>
 </head>
 <body>
+    {{#if Admin}}
+    {{>AdminHeader}}
+    {{else}}
     {{>Header}}
+    {{/if}}
     <form action="/AddTime" class="loggInForm" method="post">
         <h3 class="loggInForm-tittle">Lag bruker</h3><br>
         <div class="loggInForm-input-container">

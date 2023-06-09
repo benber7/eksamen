@@ -41,14 +41,9 @@ app.post("/LoggIn", async (req, res) => {
                 req.session.admin = true;
             }
             res.redirect("/Profil");
-        }else{         
-            res.send('<script>alert("Feil Epost eller Passord"); location.href = "/loggIn.html"; </script>');
         }
-    }else{
-        res.send('<script>alert("Feil Epost eller Passord"); location.href = "/loggIn.html"; </script>');
+}});
 
-    }
-});
 app.get("/Profil", (req, res)=>{
     if(req.session.loggedin){
 
@@ -66,8 +61,26 @@ app.get("/brukere", (req, res)=>{
     let brukere = db.prepare("SELECT * FROM Person").all()
     let objekt = {brukere: brukere}
     res.render("brukere.hbs", objekt)
+    
+    if(req.session.loggedin){
+
+        res.render("brukere.hbs", {
+            userdata: req.session.userData,
+            klasseData: req.session.klasseData,
+            Admin: req.session.admin
+        })
+    }else{
+        res.redirect("/index.html");
+    }
 });
 
+/*
+app.get("/brukere", (req, res)=>{
+    let brukere = db.prepare("SELECT * FROM Person").all()
+    let objekt = {brukere: brukere}
+    res.render("brukere.hbs", objekt)
+});
+*/
 app.post("/slettBruker", (req, res) => {
     let id = req.body.id;
     slettBruker(id);
@@ -92,9 +105,9 @@ app.post("/endreBruker", (req, res) => {
     res.redirect("back");
 });
 
-function endreBruker(id, rolle, Fornavn, Etternavn, tlf, Brukernavn, Epost, Klasse_id) {
-    let brukere = db.prepare("UPDATE Person SET rolle = ?, Fornavn = ?, Etternavn = ?, tlf = ?, Brukernavn = ?, Epost = ?, Klasse_id = ? WHERE id = ?");
-    brukere.run(rolle, Fornavn, Etternavn, tlf, Brukernavn, Epost, Klasse_id, id);
+function endreBruker(id, Fornavn, Etternavn, Epost, Klasse_id, Brukernavn, tlf, rolle) {
+    let brukere = db.prepare("UPDATE Person SET id = ?, Fornavn = ?, Etternavn = ?, Epost = ?, Klasse_id = ?, Brukernavn = ?, tlf = ?, rolle = ? WHERE id = ?");
+    brukere.run(id, Fornavn, Etternavn, Epost, Klasse_id, Brukernavn, tlf, rolle);
   }
   
 
@@ -157,30 +170,8 @@ app.get("/Loggout", (req, res) => {
     res.redirect("/");
 })
 
-/*
-app.get("/changePwd", (req, res)=>{
-    if(req.session.loggedin){
-
-        res.render("UpdatePwd.hbs", {
-            Admin: req.session.admin
-        })
-    }else{
-        res.redirect("/index.html");
-    }
-})
-
-app.post("/updpwd", async (req,res)=>{
-    let svar = req.body;
-    if(await bcrypt.compare(svar.oldpassword, req.session.userData.PassordHash)){
-        let hash = await bcrypt.hash(svar.newpassword, 10)
-        db.prepare("UPDATE Person SET PassordHash = ? WHERE id = ?").run(hash, req.session.userData.id)
-        res.send('<script>alert("Passord oppdatert"); location.href = "/profil"; </script>');
-    }
-});
-*/
-
 //timeplan hvor den rendrer siden og henter dager og tider fra databasen
-app.get("/TimePlan", (req,res)=>{
+app.get("/ukeplan", (req,res)=>{
     if(req.session.loggedin){
         if(req.session.userData.Rolle == "Elev"){
             
