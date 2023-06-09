@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lag bruker</title>
+</head>
+<body>
+    {{>Header}}
+    <form action="/CreateClass" class="loggInForm" method="post">
+        <h3 class="loggInForm-tittle">Lag bruker</h3><br>
+        <div class="loggInForm-input-container">
+            <label class="loggInForm-label" for="rolle">Rolle</label><br>
+            <select name="avdeling" required id="avdeling">
+                {{#each Avdeling}}
+                <option value="{{this.idAvdeling}}">{{this.Navn}}</option>
+                {{/each}}
+            </select>
+            <br>
+            <label class="loggInForm-label" for="Navn">Navn</label><br>
+            <input type="text" name="Navn" required  placeholder="Navn"><br>
+            <br>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    
+</body>
+</html>

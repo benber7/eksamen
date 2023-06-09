@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Logg in</title>
 </head>
 <body>
+    <form action="/LoggIn" class="loggInForm" method="post">
+        <h3 class="loggInForm-tittle">Logg In</h3><br>
+        <div class="loggInForm-input-container">
+            <label class="loggInForm-label" for="Epost">Epost</label><br>
+            <input type="email" name="Epost" placeholder="Epost"><br>
+            <br>
+            <label class="loggInForm-label" for="password">Passord</label><br>
+            <input type="password" name="password" placeholder="Passord"><br>
+            <br>
+            <input type="submit" value="Submit">
+        </div>
+       
+    </form>
     
 </body>
 </html>

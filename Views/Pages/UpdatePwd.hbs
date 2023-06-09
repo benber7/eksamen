@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Endre Passord</title>
+</head>
+<body>
+    {{>Header}}
+    <form action="/updpwd" class="loggInForm" method="post">
+        <h3 class="loggInForm-tittle">Oppdater passord</h3><br>
+        <div class="loggInForm-input-container">
+            <label class="loggInForm-label" for="oldpassword">Gamelt Passord</label><br>
+            <input type="password" name="oldpassword" placeholder="Gamelt Passord"><br>
+            <br>
+            <label class="loggInForm-label" for="newpassword">Nytt Passord</label><br>
+            <input type="password" name="newpassword" placeholder="Passord"><br>
+            <br>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    
+</body>
+</html>

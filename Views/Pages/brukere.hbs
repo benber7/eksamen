@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Brukere</title>
+</head>
+<body>
+{{>Header}}
+
+<h1>Liste av brukere</h1>
+
+        <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Rolle</td>
+                <td>Fornavn</td>
+                <td>Etternavn</td>
+                <td>Tlf</td>
+                <td>Brukernavn</td>
+                <td>Epost</td>
+                <td>KLasse ID</td>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {{#each brukere}}
+                <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.rolle}}</td>
+                    <td>{{this.Fornavn}}</td>
+                    <td>{{this.Etternavn}}</td>
+                    <td>{{this.tlf}}</td>
+                    <td>{{this.brukernavn}}</td>
+                    <td>{{this.Epost}}</td>
+                    <td>{{this.Klasse_id}}</td>
+                    <td><form action="/slettBruker" method="post">
+                            <input type="hidden" name="id" value="{{this.id}}">
+                            <input type="submit" value="Slett">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/endreBruker" method="post">
+                            <input type="hidden" name="id" value="{{this.id}}">
+                            Rolle:
+                            <select name="rolle" id="rolle">
+                                <option value="Elev">Elev</option>
+                                <option value="Larer">Lærer</option>
+                                <option value="IT-med">IT-medarbeider</option>
+                                <option value="Admin">Admin</option>
+                            </select>
+                            Fornavn:
+                            <input type="text" name="Fornavn" value="{{this.Fornavn}}"><br>
+                            Etternavn:
+                            <input type="text" name="Etternavn" value="{{this.Etternavn}}"><br>
+                            TLF:
+                            <input type="number" name="tlf" value="{{this.tlf}}"><br>
+                            Brukernavn:
+                            <input type="text" name="brukernavn" value="{{this.brukernavn}}"><br>
+                            Epost:
+                            <input type="text" name="Epost" value="{{this.Epost}}"><br>
+                            Klasse ID:
+                            <select name="Klasse_id" id="Klasse_id">
+                                <option value="Ingen">Ingen</option>
+                                <option value="1">Barnehage</option>
+                                <option value="2">Barneskole</option>
+                                <option value="3">Ungdomsskole</option>
+                            </select><br>
+                            <input type="submit" value="Updater">
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table><br>
+</body>
+</html>

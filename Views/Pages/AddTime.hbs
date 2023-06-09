@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lag bruker</title>
+</head>
+<body>
+    {{>Header}}
+    <form action="/AddTime" class="loggInForm" method="post">
+        <h3 class="loggInForm-tittle">Lag bruker</h3><br>
+        <div class="loggInForm-input-container">
+            <label class="loggInForm-label" for="klasse">Klasse</label><br>
+            <select name="klasse" id="klasse">
+                {{#each klasser}}
+                    <option value="{{this.id}}">{{this.Navn}}</option>
+                {{/each}}
+            </select>
+            <br><br>
+            <label class="loggInForm-label"  for="aktivitet">aktivitet</label><br>
+            <input type="text" name="aktivitet" id="aktivitet" placeholder="aktivitet">
+            <br><br>
+            <label class="loggInForm-label" for="dag">Dag</label><br>
+             <select name="dag" id="dag" >
+                <option value="Mandag">Mandag</option>
+                <option value="Tirsdag">Tirsdag</option>
+                <option value="Onsdag">Onsdag</option>
+                <option value="Torsdag">Torsdag</option>
+                <option value="Fredag">Fredag</option>
+             </select>
+            <br><br>
+            <label class="loggInForm-label" for="time">Time</label><br>
+            <select name="time" id="time" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+             </select>
+             <br><br>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    
+</body>
+</html>

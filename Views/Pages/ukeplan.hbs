@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Endre Passord</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lag bruker</title>
+</head>
+<body>
+    {{>Header}}
+    <div action="/CreateUser" class="loggInForm" method="post" style="width: 75% !important;">
+        <h3 class="loggInForm-tittle">Bruker oversikt</h3><br>
+        <div class="loggInForm-input-container">
+            <table class="tbl">
+                <tr style="padding: 10px;">
+                    <td style="padding: 10px;">Tidspunkt</td>
+                    <td style="padding: 10px;">Mandag</td>
+                    <td style="padding: 10px;">Tirsdag</td>
+                    <td style="padding: 10px;">Onsdag</td>
+                    <td style="padding: 10px;">Torsdag</td>
+                    <td style="padding: 10px;">Fredag</td>
+                </tr>
+                <tr style="padding: 10px;">
+                    <td style="padding: 10px;">08:30-09:30</td>
+                    <td style="padding: 10px;">{{Mandag.t1.Navn}}</td>
+                    <td style="padding: 10px;">{{Tirsdag.t1.Navn}}</td>
+                    <td style="padding: 10px;">{{Onsdag.t1.Navn}}</td>
+                    <td style="padding: 10px;">{{Torsdag.t1.Navn}}</td>
+                    <td style="padding: 10px;">{{Fredag.t1.Navn}}</td>
+                </tr>
+                <tr style="padding: 10px;">
+                    <td style="padding: 10px;">09:40-10:40</td>
+                    <td style="padding: 10px;">{{Mandag.t2.Navn}}</td>
+                    <td style="padding: 10px;">{{Tirsdag.t2.Navn}}</td>
+                    <td style="padding: 10px;">{{Onsdag.t2.Navn}}</td>
+                    <td style="padding: 10px;">{{Torsdag.t2.Navn}}</td>
+                    <td style="padding: 10px;">{{Fredag.t2.Navn}}</td>
+                </tr>
+                <tr style="padding: 10px;">
+                    <td style="padding: 10px;">10:50-11:50</td>
+                     <td style="padding: 10px;">{{Mandag.t3.Navn}}</td>
+                    <td style="padding: 10px;">{{Tirsdag.t3.Navn}}</td>
+                    <td style="padding: 10px;">{{Onsdag.t3.Navn}}</td>
+                    <td style="padding: 10px;">{{Torsdag.t3.Navn}}</td>
+                    <td style="padding: 10px;">{{Fredag.t3.Navn}}</td>
+                </tr>
+                <tr style="padding: 10px;">
+                    <td style="padding: 10px;">12:30-13:30</td>
+                     <td style="padding: 10px;">{{Mandag.t4.Navn}}</td>
+                    <td style="padding: 10px;">{{Tirsdag.t4.Navn}}</td>
+                    <td style="padding: 10px;">{{Onsdag.t4.Navn}}</td>
+                    <td style="padding: 10px;">{{Torsdag.t4.Navn}}</td>
+                    <td style="padding: 10px;">{{Fredag.t4.Navn}}</td>
+                </tr>
+                <tr style="padding: 10px;">
+                    <td style="padding: 10px;">13:40-14:40</td>
+                     <td style="padding: 10px;">{{Mandag.t5.Navn}}</td>
+                    <td style="padding: 10px;">{{Tirsdag.t5.Navn}}</td>
+                    <td style="padding: 10px;">{{Onsdag.t5.Navn}}</td>
+                    <td style="padding: 10px;">{{Torsdag.t5.Navn}}</td>
+                    <td style="padding: 10px;">{{Fredag.t5.Navn}}</td>
+                </tr>
+                <tr style="padding: 10px;">
+                    <td style="padding: 10px;">14:50-15:50</td>
+                     <td style="padding: 10px;">{{Mandag.t6.Navn}}</td>
+                    <td style="padding: 10px;">{{Tirsdag.t6.Navn}}</td>
+                    <td style="padding: 10px;">{{Onsdag.t6.Navn}}</td>
+                    <td style="padding: 10px;">{{Torsdag.t6.Navn}}</td>
+                    <td style="padding: 10px;">{{Fredag.t6.Navn}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,131 @@
+body {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  button {
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ffd700;
+    color: #222;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #ffd700;
+    color: #222;
+    cursor: pointer;
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    background-color: #222;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .nav-item {
+    float: left;
+  }
+  
+  .nav-Link {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .nav-Link:hover {
+    background-color: #ffd700;
+    color: #222;
+  }
+  
+  /* Form Styles */
+  .registrerForm,
+  .loggInForm {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #333;
+  }
+  
+  .registrerForm-tittle,
+  .loggInForm-tittle {
+    color: #ffd700;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .registrerForm-label,
+  .loggInForm-label {
+    color: #ffd700;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .registrerForm-input-container,
+  .loggInForm-input-container {
+    margin-bottom: 20px;
+  }
+  
+  .registrerForm-input-container select,
+  .loggInForm-input-container select {
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+  
+  .registrerForm-bottom-text,
+  .loggInForm-bottom-text {
+    color: #fff;
+    margin-top: 20px;
+  }
+
+  input[type=text], 
+  input[type=email], 
+  input[type=number], 
+  input[type=password], 
+  input[type=submit] {
+    background-color: #222;
+    color: #fff;
+  }
+  
+  /* Table Styles */
+  table {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #333;
+  }
+  
+  table td {
+    padding: 10px;
+    border: 1px solid #fff;
+  }
+  
+  /* Gold Accent Color */
+  .gold-accent {
+    color: #ffd700;
+  }
